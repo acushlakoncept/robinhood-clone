@@ -5,6 +5,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Header from '../components/header'
 import PortfolioChart from '../components/chart'
 import BuyToken from '../components/buy-tokens'
+import Assets from '../components/assets'
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -71,8 +72,10 @@ export default function Home() {
 
             <BiDotsHorizontalRounded className={styles.moreOptions} />
           </div>
-          Icons
-
+          <Assets coin={'BTC'} price={'44,000'} />
+          <Assets coin={'ETH'} price={'3,000'} />
+          <Assets coin={'SOL'} price={'150'} />
+          <Assets coin={'AVAX'} price={'200'} />
           <div className={styles.rightMainItem}>
             <div className={styles.ItemTitle}>Lists</div>
             <AiOutlinePlus className={styles.moreOptions} />
