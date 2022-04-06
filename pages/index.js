@@ -3,6 +3,7 @@
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import Header from '../components/header'
+import PortfolioChart from '../components/chart'
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -45,7 +46,7 @@ export default function Home() {
           </div>
           <div>
             <div className={styles.chartContainer}>
-              Chart Here
+              <PortfolioChart />
             </div>
           </div>
           <div className={styles.buyingPowerContainer}>

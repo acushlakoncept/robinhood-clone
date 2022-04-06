@@ -25,7 +25,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.leftHeader}>
-        <Image src={logo} height={100} width={100} alt="logo" />
+        <Image src={logo} height={100} width={100} alt="logo" className={styles.logo} />
       </div>
       <div className={styles.searchWrapper}>
         <div className={styles.searchInputContainer}>
