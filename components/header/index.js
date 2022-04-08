@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { useContext } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import logo from '../../assets/logo.png';
+import { RobinhoodContext } from '../../context/RobinhoodContext';
 
 const styles = {
   container: 'flex w-screen h-16 bg-black px-24 py-3 mb-5 fixed',
@@ -18,9 +20,13 @@ const styles = {
 
 export default function Header() {
 
-  const connectWallet = () => {}
-  const isAuthenticated = true;
-  const formattedAccount = "0x1c8...f42"
+  const {
+    isAuthenticated, 
+    signOut,
+    connectWallet, 
+    formattedAccount,
+    currentAccount 
+    } = useContext(RobinhoodContext);
 
   return (
     <div className={styles.container}>
