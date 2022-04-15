@@ -6,6 +6,10 @@ import Header from '../components/header'
 import PortfolioChart from '../components/chart'
 import BuyToken from '../components/buy-tokens'
 import Assets from '../components/assets'
+import axios from 'axios'
+import { getCoins } from '../actions'
+import { RobinhoodContext } from '../context/RobinhoodContext'
+import { useContext } from 'react'
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -34,13 +38,17 @@ const styles = {
 }
 
 export default function Home() {
+  // console.log("coin host", coins)
+
+  const {balance} = useContext(RobinhoodContext)
+
   return (
     <div className={styles.wrapper}>
       <Header/>
       <div className={styles.mainContainer}>
         <div className={styles.leftMain}>
           <div className={styles.portfolioAmountContainer}>
-            <div className={styles.portfolioAmount}>0.00 ETH</div>
+            <div className={styles.portfolioAmount}>{balance} ETH</div>
             <div className={styles.portfolioPercent}>
               +0.0008(+0.57%)
               <span className={styles.pastHour}>Past Hour</span>
@@ -53,7 +61,7 @@ export default function Home() {
           </div>
           <div className={styles.buyingPowerContainer}>
             <div className={styles.buyingPowerTitle}>Buying Power</div>
-            <div className={styles.buyingPowerAmount}>0.00 ETH</div>
+            <div className={styles.buyingPowerAmount}>{balance} ETH</div>
           </div>
           <div className={styles.notice}>
             <div className={styles.noticeContainer}>
@@ -66,22 +74,33 @@ export default function Home() {
           </div>
           Notice
         </div>
+
         <div className={styles.rightMain}>
           <div className={styles.rightMainItem}>
             <div className={styles.ItemTitle}>Crypto Currencies</div>
-
             <BiDotsHorizontalRounded className={styles.moreOptions} />
           </div>
+
+          
           <Assets coin={'BTC'} price={'44,000'} />
           <Assets coin={'ETH'} price={'3,000'} />
           <Assets coin={'SOL'} price={'150'} />
           <Assets coin={'AVAX'} price={'200'} />
+
           <div className={styles.rightMainItem}>
             <div className={styles.ItemTitle}>Lists</div>
             <AiOutlinePlus className={styles.moreOptions} />
           </div>
         </div>
+        
       </div>
     </div>
   )
 }
+
+// Home.getInitialProps = async ({ req }) => {
+//   const coins = await getCoins();
+//   return {
+//     props: { coins }
+//   }
+// }
