@@ -15,7 +15,7 @@ USDC Contract Address => 0x2A6FdFF843353fe1241EAc9308e91Ac22179279a
 
 
 
-[Live](https://mywave-portal.vercel.app/)
+[Live](https://robinhood-clone-omega.vercel.app/)
 
 ![screenshot](./robinhood.jpg)
 
