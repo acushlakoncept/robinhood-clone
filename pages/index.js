@@ -20,12 +20,12 @@ const styles = {
   portfolioPercent: 'text-white font-bold text-sm',
   pastHour: 'text-gray-400',
   chartContainer:
-    'text-5xl flex justify-center w-full h-1/3 text-white mt-11 mb-11',
+    'text-5xl flex justify-center w-full h-1/3 text-white mt-11 mb-8',
   buyingPowerContainer:
     'w-full border-t mb-24 border-b h-16 border-[#30363b] flex justify-between items-center p-4',
   buyingPowerTitle: 'text-white font-bolder text-lg',
   buyingPowerAmount: 'text-white font-bolder text-xl',
-  notice: 'flex border border-[#30363b] mx-11 my-4 p-5 flex-col flex-1',
+  notice: 'flex border border-[#30363b] mx-11 p-5 flex-col flex-1',
   noticeContainer: 'flex-1',
   noticeTitle: 'text-gray-500',
   noticeMessage: 'text-white font-bold',
@@ -62,7 +62,7 @@ export default function Home() {
           <div className={styles.buyingPowerContainer}>
             <div className={styles.buyingPowerTitle}>Buying Power</div>
             <div className={styles.buyingPowerAmount}>{balance} ETH</div>
-          </div>
+          </div>         
           <div className={styles.notice}>
             <div className={styles.noticeContainer}>
               <div className={styles.noticeTitle}>Send Funds</div>
@@ -70,10 +70,22 @@ export default function Home() {
                 Transfer your funds here.
               </div>
               <BuyToken />
+
+              <div className="text-gray-600 ">
+              For testing purposes you can add the tokens to your Rinkeby Testnet on your metamask
+              <ul className='mt-2 leading-7'>
+              <li>Bitcoin Contract Address =&gt; 0xb6c16Bf054A97b27Ad601644f231FD61A65E3dc6</li>
+              <li>Dogecoin Contract Address =&gt; 0xA94fAC6DA1AB1f550005069c0Ceadf031badf60a</li>
+              <li>Solana Contract Address =&gt; 0xE5EDf8AA146037C421664922A5cb29D68a362101</li>
+              <li>USDC Contract Address =&gt; 0x2A6FdFF843353fe1241EAc9308e91Ac22179279a</li>
+              </ul>
+              </div>
             </div>
           </div>
           Notice
         </div>
+
+        
 
         <div className={styles.rightMain}>
           <div className={styles.rightMainItem}>
