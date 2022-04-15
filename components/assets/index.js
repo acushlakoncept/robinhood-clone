@@ -1,15 +1,16 @@
+import React from 'react'
 import { Line } from 'react-chartjs-2'
-import Chart from 'chart.js/auto'
 
 const styles = {
-  wrapper: 'flex justify-between p-5 hover:bg-[#30363B]',
-  container: 'flex flex-col text-white items-center',
+  wrapper: 'flex justify-between p-5  hover:bg-[#30363B] duration-300',
+  container: 'flex flex-col text-white items-center justify-center',
+  name: 'font-bold',
+  chart: 'w-36 h-full',
   price: 'flex flex-col text-white',
   percent: 'text-green-400',
 }
 
-export default function Assets({coin, price}) {
-
+const Asset = ({ coin, price }) => {
   const randomNumber = () => {
     let data = []
     for (let i = 0; i < 9; i++) {
@@ -60,27 +61,27 @@ export default function Assets({coin, price}) {
       },
     },
   }
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.name}>{coin}</div>
-      
-        <div>
-          <div className={styles.chart}>
-            <Line data={data} options={options} width={400} height={150} />
-          </div>
+        <div className={styles.name}>{coin.symbol}</div>
+      </div>
+      <div>
+        <div className={styles.chart}>
+          <Line data={data} options={options} width={400} height={150} />
         </div>
-        <div className={styles.price}>
-          <div>{price}</div>
-          <div
-            className={styles.percent}
-            style={{ color: coin.change < 0 ? '#ef4b09' : 'green' }}
-          >
-            {coin.change}%
-          </div>
+      </div>
+      <div className={styles.price}>
+        <div>{price}</div>
+        <div
+          className={styles.percent}
+          style={{ color: coin.change < 0 ? '#ef4b09' : 'green' }}
+        >
+          {coin.change}%
         </div>
       </div>
     </div>
   )
 }
+
+export default Asset

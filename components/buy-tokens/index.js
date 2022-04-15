@@ -1,3 +1,5 @@
+import { RobinhoodContext } from "../../context/RobinhoodContext"
+import { useContext } from "react"
 
 
 const styles = {
@@ -10,20 +12,52 @@ const styles = {
 
 
 export default function BuyToken() {
+
+  const {
+    isAuthenticated,
+    setAmount,
+    mint,
+    setCoinSelect,
+    coinSelect,
+    toCoin,
+    amount,
+    setToCoin,
+  } = useContext(RobinhoodContext)
+
   return (
     <form className={styles.formContainer}>
       <div className="flex h-full w-full flex-col items-center">
-        <select className={styles.select}>
+        <select
+          value={coinSelect}
+          onChange={(e) => setCoinSelect(e.target.value)}
+          className={styles.select}>
           <option className={styles.options} value="BTC">BTC</option>
           <option className={styles.options} value="ETH">ETH</option>
+          <option className={styles.options} value="DOGE">DOGE</option>
           <option className={styles.options} value="SOL">SOL</option>
           <option className={styles.options} value="USDC">USDC</option>
         </select>
-        <input className={styles.inputAmount} type="text" placeholder="Amount..." />
+        <select
+          value={toCoin}
+          onChange={(e) => setToCoin(e.target.value)} 
+          className={styles.select}>
+          <option className={styles.options} value="BTC">BTC</option>
+          <option className={styles.options} value="DOGE">DOGE</option>
+          <option className={styles.options} value="SOL">SOL</option>
+          <option className={styles.options} value="USDC">USDC</option>
+        </select>
+        <input
+          value={amount}
+          onChange={e => setAmount(e.target.value)}
+          className={styles.inputAmount} 
+          type="text" 
+          placeholder="Amount..." />
 
         <button 
+          disabled={!isAuthenticated}
+          onClick={() => mint()}
           className={styles.noticeCTA}
-          type="submit"
+          type="button"
           >Send</button>
       </div>
     </form>
